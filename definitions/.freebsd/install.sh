@@ -44,17 +44,17 @@ cd /mnt ; ln -s usr/home home
 sleep 10
 chmod 1777 /mnt/var/tmp
 
+# set up swap
+zfs create -V 2G zroot/swap
+zfs set org.freebsd:swap=on zroot/swap
+zfs set checksum=off zroot/swap
+
 # Install the OS
 cd /usr/freebsd-dist
 cat base.txz | tar --unlink -xpJf - -C /mnt
 cat lib32.txz | tar --unlink -xpJf - -C /mnt
 cat kernel.txz | tar --unlink -xpJf - -C /mnt
 cat src.txz | tar --unlink -xpJf - -C /mnt
-
-# set up swap
-zfs create -V 2G zroot/swap
-zfs set org.freebsd:swap=on zroot/swap
-zfs set checksum=off zroot/swap
 
 cp /tmp/zpool.cache /mnt/boot/zfs/zpool.cache
 
@@ -82,6 +82,8 @@ echo '/dev/gpt/swap0 none swap sw 0 0' > /mnt/etc/fstab
 
 # Install a few requirements
 echo 'nameserver 8.8.8.8' > /mnt/etc/resolv.conf
+
+export PACKAGESITE=ftp://ftp.freebsd.org/pub/FreeBSD/ports/amd64/packages-9-stable/Latest/
 pkg_add -C /mnt -r bash-static
 (
   cd /mnt/bin
