@@ -5,10 +5,8 @@ cat >> /etc/make.conf << EOT
 WITHOUT_X11="YES"
 EOT
 
-
 # Install virtualbox OSE guest additions
-PACKAGESITE=ftp://ftp.freebsd.org/pub/FreeBSD/ports/amd64/packages-9-stable/Latest/
-pkg_add -r virtualbox-ose-additions
+PACKAGESITE=ftp://ftp.freebsd.org/pub/FreeBSD/ports/amd64/packages-9-stable/Latest/ pkg_add -r virtualbox-ose-additions
 
 # undo our customizations
 sed -i '' -e '/^REFUSE /d' /etc/portsnap.conf
