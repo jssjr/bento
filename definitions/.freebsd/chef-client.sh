@@ -1,6 +1,8 @@
 #!/bin/sh -x
 
-# Note: This is the RideCharge build of omnibux Chef. It is only for freebsd.
-INSTALLER=https://dist.ridecharge.com/pub/chef/install.sh
+FILENAME=chef-11.4.0_0.freebsd.9.1-RELEASE.sh
+INSTALLER=http://petecheslock.s3.amazonaws.com/${FILENAME}
 
-fetch -q -o- ${INSTALLER} | sudo bash
+fetch ${INSTALLER}
+chmod +x ./${FILENAME}
+sudo ./${FILENAME} --nox11

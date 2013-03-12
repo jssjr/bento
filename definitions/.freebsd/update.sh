@@ -18,7 +18,7 @@ REFUSE accessibility arabic archivers astro audio benchmarks biology cad
 REFUSE chinese comms databases deskutils distfiles dns editors finance french
 REFUSE ftp games german graphics hebrew hungarian irc japanese java korean
 REFUSE mail math multimedia net net-im net-mgmt net-p2p news packages palm
-REFUSE polish ports-mgmt portuguese print russian science sysutils ukrainian
+REFUSE polish portuguese print russian science sysutils ukrainian
 REFUSE vietnamese www x11 x11-clocks x11-drivers x11-fm x11-fonts x11-servers
 REFUSE x11-themes x11-toolkits x11-wm
 EOT
